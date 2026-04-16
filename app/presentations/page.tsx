@@ -8,7 +8,6 @@ import {
   Code,
   Image,
   Layers,
-  ArrowRight,
   ExternalLink,
 } from "lucide-react";
 import { Card } from "@/components/ui/Card";

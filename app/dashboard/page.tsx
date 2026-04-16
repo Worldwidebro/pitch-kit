@@ -2,13 +2,8 @@
 
 import { motion } from "framer-motion";
 import {
-  BarChart3,
   TrendingUp,
-  Users,
-  DollarSign,
-  Activity,
   ArrowUpRight,
-  ArrowDownRight,
   Star,
 } from "lucide-react";
 import { Card, MetricCard } from "@/components/ui/Card";

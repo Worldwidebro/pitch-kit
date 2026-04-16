@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { registerGSAP, gsap, ScrollTrigger } from "@/lib/gsap";
+import { registerGSAP, gsap } from "@/lib/gsap";
 import { cn } from "@/lib/utils";
 
 interface ScrollSectionProps {
@@ -34,7 +34,14 @@ export function ScrollSection({
     const content = contentRef.current;
     if (!section || !content) return;
 
-    const triggers: ScrollTrigger[] = [];
+    const instances: Array<gsap.core.Tween | gsap.core.Timeline> = [];
+
+    const baseTrigger = {
+      trigger: section,
+      start: "top 80%",
+      end: "bottom 20%",
+      toggleActions: "play none none reverse" as const,
+    };
 
     if (pin) {
       const tl = gsap.timeline({
@@ -47,73 +54,71 @@ export function ScrollSection({
         },
       });
       tl.fromTo(content, { opacity: 0, y: 50 }, { opacity: 1, y: 0 });
-      if (triggers.length === 0 && tl.scrollTrigger) {
-        triggers.push(tl.scrollTrigger);
-      }
+      instances.push(tl);
     } else {
-      const triggerConfig: ScrollTrigger.Vars = {
-        trigger: section,
-        start: "top 80%",
-        end: "bottom 20%",
-        toggleActions: "play none none reverse",
-      };
-
       switch (animation) {
         case "fade-up":
-          gsap.fromTo(content, { opacity: 0, y: 60 }, {
-            ...triggerConfig,
-            y: 0,
-            opacity: 1,
-            duration: 1,
-            ease: "power2.out",
-          });
+          instances.push(
+            gsap.fromTo(content, { opacity: 0, y: 60 }, {
+              y: 0,
+              opacity: 1,
+              duration: 1,
+              ease: "power2.out",
+              scrollTrigger: baseTrigger,
+            })
+          );
           break;
         case "slide-in":
-          gsap.fromTo(content, { opacity: 0, x: -80 }, {
-            ...triggerConfig,
-            x: 0,
-            opacity: 1,
-            duration: 1,
-            ease: "power2.out",
-          });
+          instances.push(
+            gsap.fromTo(content, { opacity: 0, x: -80 }, {
+              x: 0,
+              opacity: 1,
+              duration: 1,
+              ease: "power2.out",
+              scrollTrigger: baseTrigger,
+            })
+          );
           break;
         case "scale":
-          gsap.fromTo(content, { opacity: 0, scale: 0.85 }, {
-            ...triggerConfig,
-            scale: 1,
-            opacity: 1,
-            duration: 1,
-            ease: "power2.out",
-          });
+          instances.push(
+            gsap.fromTo(content, { opacity: 0, scale: 0.85 }, {
+              scale: 1,
+              opacity: 1,
+              duration: 1,
+              ease: "power2.out",
+              scrollTrigger: baseTrigger,
+            })
+          );
           break;
         case "parallax":
-          gsap.fromTo(content, { y: 100 }, {
-            scrollTrigger: {
-              trigger: section,
-              start: "top bottom",
-              end: "bottom top",
-              scrub: 1,
-            },
-            y: -100,
-            ease: "none",
-          });
+          instances.push(
+            gsap.fromTo(content, { y: 100 }, {
+              y: -100,
+              ease: "none",
+              scrollTrigger: {
+                trigger: section,
+                start: "top bottom",
+                end: "bottom top",
+                scrub: 1,
+              },
+            })
+          );
           break;
         case "reveal":
-          gsap.fromTo(content, { clipPath: "inset(0 100% 0 0)" }, {
-            ...triggerConfig,
-            clipPath: "inset(0 0% 0 0)",
-            duration: 1.2,
-            ease: "power3.inOut",
-          });
+          instances.push(
+            gsap.fromTo(content, { clipPath: "inset(0 100% 0 0)" }, {
+              clipPath: "inset(0 0% 0 0)",
+              duration: 1.2,
+              ease: "power3.inOut",
+              scrollTrigger: baseTrigger,
+            })
+          );
           break;
       }
     }
 
     return () => {
-      triggers.forEach((t) => t.kill());
-      ScrollTrigger.getAll().forEach((t) => {
-        if (t.vars.trigger === section) t.kill();
-      });
+      instances.forEach((t) => t.kill());
     };
   }, [animation, pin]);
 

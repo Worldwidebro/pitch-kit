@@ -27,22 +27,6 @@ export interface ScrollSection {
   animation: "fade-up" | "slide-in" | "scale" | "parallax" | "reveal";
 }
 
-export interface DashboardMetric {
-  label: string;
-  value: string | number;
-  change?: string;
-  trend?: "up" | "down" | "flat";
-  icon?: string;
-}
-
-export interface SandboxComponent {
-  id: string;
-  name: string;
-  category: string;
-  props: Record<string, unknown>;
-  code: string;
-}
-
 export type PitchFlow = "hook" | "demo" | "experience" | "proof" | "close";
 
 export const PITCH_FLOW_ORDER: PitchFlow[] = [
