@@ -34,3 +34,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# generated decks (regenerate with npm run generate-decks)
+slides/generated/
+
+# copied data files (source is venture-hub/data/)
+data/
