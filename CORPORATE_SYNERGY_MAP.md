@@ -225,7 +225,222 @@ The holding company doesn't just save money — it **changes the math of what's 
 
 ---
 
-## 4. VENTURE-TO-VENTURE SYNERGIES — The Cross-Division Multipliers
+## 4. PHASE LAYOUT — The Corporate Customer Path (From CSV Data)
+
+The 12 customer path phases are the **production line** of the holding company. Each venture should be able to move a customer from `discover` → `monetize`. But the CSV data reveals the actual state: **most divisions only cover 2-3 phases.**
+
+### The 12 Customer Path Phases
+
+```
+  ┌─────────────────────────────────────────────────────────────────────┐
+  │  THE CUSTOMER JOURNEY = THE REVENUE PIPELINE                       │
+  │                                                                     │
+  │  1. DISCOVER    Customer finds the venture (SEO, hub, ads)          │
+  │  2. HOOK        Customer shows interest (email, signup, click)      │
+  │  3. DEMO        Customer sees the product in action                 │
+  │  4. EXPERIENCE  Customer tries it hands-on (free trial, sandbox)   │
+  │  5. PROOF       Customer sees evidence it works (case studies)      │
+  │  6. CLOSE       Customer commits to buying (checkout, contract)     │
+  │  7. BUILD       Product is built/delivered for the customer        │
+  │  8. DELIVER     Product goes live for the customer                  │
+  │  9. SUPPORT     Customer gets help when they need it                │
+  │  10. SCALE      Customer grows with the product                     │
+  │  11. KNOW       Customer intelligence feeds back into the system     │
+  │  12. MONETIZE   Revenue is captured (subscription, one-time, etc.) │
+  └─────────────────────────────────────────────────────────────────────┘
+```
+
+### Sector × Phase Matrix — Which Divisions Cover Which Phases
+
+*Source: `csv/REPO_URL_MAP.csv` — actual phase flags per repo*
+
+| Division | discover | hook | demo | experience | proof | close | build | deliver | support | scale | know | monetize | **Phases Covered** |
+|----------|:--------:|:----:|:----:|:----------:|:-----:|:-----:|:-----:|:-------:|:-------:|:-----:|:----:|:--------:|:-----------------:|
+| 🛒 E-Commerce (111) | ✅ 111 | ❌ 0 | ✅ 110 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ✅ 111 | **3/12** |
+| 💻 Technology (57) | ✅ 57 | 🟡 1 | ✅ 56 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ✅ 56 | **3/12** |
+| 🏘️ Community (50) | ✅ 50 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ✅ 50 | ❌ 0 | ❌ 0 | **2/12** |
+| 🌱 Emerging (50) | ✅ 50 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ✅ 50 | ❌ 0 | ❌ 0 | **2/12** |
+| 💅 Beauty/Wellness (40) | ✅ 40 | ✅ 40 | ✅ 40 | ❌ 0 | ❌ 0 | ❌ 0 | ✅ 40 | ✅ 40 | ❌ 0 | ❌ 0 | ❌ 0 | ✅ 40 | **6/12** |
+| 📚 Education (40) | ✅ 40 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ✅ 40 | ❌ 0 | ❌ 0 | **2/12** |
+| 💰 Financial (36) | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ✅ 36 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ✅ 36 | **2/12** |
+| 🍔 Food/Hospitality (34) | ✅ 34 | ❌ 0 | ✅ 34 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ✅ 34 | **3/12** |
+| 🚛 Logistics/Transport (30) | ✅ 30 | ❌ 0 | ✅ 30 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ✅ 30 | **3/12** |
+| 🏋️ Fitness/Sports (25) | ✅ 25 | ❌ 0 | ✅ 25 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ✅ 25 | **3/12** |
+| 👔 Professional Services (22) | ✅ 22 | ❌ 0 | ✅ 22 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ✅ 22 | **3/12** |
+| 🏗️ Construction (20) | ✅ 20 | ❌ 0 | ✅ 20 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ✅ 20 | **3/12** |
+| 📺 Media/Content (20) | ✅ 20 | ✅ 20 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ✅ 20 | **3/12** |
+| 🎓 Education/Training (15) | ✅ 15 | ❌ 0 | ✅ 15 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ✅ 15 | **3/12** |
+| 🔧 Operations (15) | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 | ✅ 15 | ✅ 15 | ❌ 0 | ❌ 0 | **2/12** |
+| 🏥 Infrastructure (9) | 🟡 2 | 🟡 1 | 🟡 1 | 🟡 1 | 🟡 1 | 🟡 1 | ✅ 3 | 🟡 1 | 🟡 2 | ✅ 4 | 🟡 1 | 🟡 1 | **12/12** |
+
+### The Phase Gap: What's Broken Across the Entire Corporation
+
+```
+  ┌───────────────────────────────────────────────────────────────────────┐
+  │  THE CORPORATE FUNNEL IS A BARBELL:                                   │
+  │                                                                       │
+  │  ✅ DISCOVER (539/577 = 93%)    Top of funnel is WORKING              │
+  │  ✅ MONETIZE (434/577 = 75%)    Bottom of funnel is MAPPED             │
+  │                                                                       │
+  │  🟡 HOOK       (67/577 = 12%)   ❌ EXPERIENCE (0/577 = 0%)            │
+  │  🟡 PROOF      (37/577 = 6%)    ❌ CLOSE (0/577 = 0%)                 │
+  │  (Hook+Proof exist but only in specific divisions — not universally)  │
+  │                                                                       │
+  │  MIDDLE OF FUNNEL IS BROKEN ACROSS ALL 16 DIVISIONS                  │
+  │                                                                       │
+  │  You can ATTRACT customers and you can MAP revenue,                   │
+  │  but you can't CONVERT them because the middle is missing.            │
+  │                                                                       │
+  │  Discovery + Demo + Monetize = a BILLBOARD with a PRICE TAG          │
+  │  But no way to get from the billboard to the price tag.              │
+  └───────────────────────────────────────────────────────────────────────┘
+```
+
+### Phase Gap by Division
+
+| Division | Covered Phases | Missing Phases (Gaps) | Severity |
+|----------|---------------|----------------------|----------|
+| 🛒 E-Commerce | discover, demo, monetize | hook, experience, proof, close, build, deliver, support, scale, know | 🔴 9 gaps |
+| 💻 Technology | discover, 🟡hook(1), demo, monetize | experience, proof, close, build, deliver, support, scale, know | 🔴 8-9 gaps |
+| 🏘️ Community | discover, scale | hook, demo, experience, proof, close, build, deliver, support, know, monetize | 🔴 10 gaps |
+| 🌱 Emerging | discover, scale | hook, demo, experience, proof, close, build, deliver, support, know, monetize | 🔴 10 gaps |
+| 💅 Beauty/Wellness | discover, hook, demo, build, deliver, monetize | experience, proof, close, support, scale, know | 🟡 6 gaps |
+| 📚 Education | discover, scale | hook, demo, experience, proof, close, build, deliver, support, know, monetize | 🔴 10 gaps |
+| 💰 Financial | proof, monetize | discover, hook, demo, experience, close, build, deliver, support, scale, know | 🔴 10 gaps |
+| 🍔 Food/Hospitality | discover, demo, monetize | hook, experience, proof, close, build, deliver, support, scale, know | 🔴 9 gaps |
+| 🚛 Logistics/Transport | discover, demo, monetize | hook, experience, proof, close, build, deliver, support, scale, know | 🔴 9 gaps |
+| 🏋️ Fitness/Sports | discover, demo, monetize | hook, experience, proof, close, build, deliver, support, scale, know | 🔴 9 gaps |
+| 👔 Professional Services | discover, demo, monetize | hook, experience, proof, close, build, deliver, support, scale, know | 🔴 9 gaps |
+| 🏗️ Construction | discover, demo, monetize | hook, experience, proof, close, build, deliver, support, scale, know | 🔴 9 gaps |
+| 📺 Media/Content | discover, hook, monetize | demo, experience, proof, close, build, deliver, support, scale, know | 🔴 9 gaps |
+| 🎓 Education/Training | discover, demo, monetize | hook, experience, proof, close, build, deliver, support, scale, know | 🔴 9 gaps |
+| 🔧 Operations | support, scale | discover, hook, demo, experience, proof, close, build, deliver, know, monetize | 🔴 10 gaps |
+| 🏥 Infrastructure | All 12 (partial) | — (broad but shallow) | 🟢 0 gaps |
+
+> **Beauty/Wellness is the ONLY division with a working funnel** (discover→hook→demo→build→deliver→monetize). It's the proof-of-concept that proves the model works — the other 15 divisions need to replicate its phase coverage.
+
+### Business Family × Phase Matrix (Prefix View)
+
+*Which business families cover which phases — the corporate subsidiary view*
+
+| Business Family | Prefix | Ventures | Phases Covered | Funnel Status |
+|----------------|--------|----------|----------------|---------------|
+| E-Commerce Family | ec- | 114 | discover, demo, monetize | ⚠️ Front+back loaded, no middle |
+| Technology Family | tech- | 57 | discover, demo, monetize | ⚠️ Same pattern |
+| Community Family | comm- | 50 | discover, scale | ⚠️ Hub-only, no conversion |
+| Emerging Family | em- | 50 | discover, scale | ⚠️ Hub-only, no conversion |
+| Beauty Family | bw- | 45 | discover, hook, demo, build, deliver, monetize | ✅ MOST COMPLETE |
+| Education Family | edu- | 40 | discover, scale | ⚠️ Hub-only, no conversion |
+| Financial Family | fin- | 37 | proof, monetize | ⚠️ No discovery — customers can't find you |
+| Food Family | fh- | 36 | discover, demo, monetize | ⚠️ Front+back loaded |
+| Logistics Family | lt- | 30 | discover, demo, monetize | ⚠️ Same pattern |
+| Fitness Family | fs- | 25 | discover, demo, monetize | ⚠️ Same pattern |
+| Professional Svcs | ps- | 22 | discover, demo, monetize | ⚠️ Same pattern |
+| Construction Family | con- | 20 | discover, demo, monetize | ⚠️ Same pattern |
+| Media Family | mc- | 20 | discover, hook, monetize | ⚠️ No demo — can't show product |
+| Education Training | et- | 17 | discover, demo, monetize | ⚠️ Same pattern |
+| Operations Family | ops- | 15 | support, scale | ⚠️ Backend-only, no customer-facing |
+| IZA-OS Workforce | iza- | 186 | support, know | ℹ️ Internal workforce, not a venture |
+
+### Powered_By × Phase — Which Infrastructure Enables Which Phases
+
+*The corporate shared services view: what each infrastructure combination provides*
+
+| Infrastructure Combination | Repos Served | Phases Enabled | Corporate Role |
+|--------------------------|:------------:|----------------|---------------|
+| pitch-kit + The Office | 214 | discover, demo, monetize | **The Classic Funnel** — prospect sees pitch → pays |
+| IZA-OS-RAG + Venture Studio | 185 | support, know | **The Intelligence Layer** — bots support + learn |
+| venture-hub + The Office | 164 | discover, scale | **The Discovery Engine** — SEO + portfolio + growth |
+| pitch-kit + The Office + IZA-OS bots | 114 | discover, demo, monetize | **The Full Pipeline** — pitch + close + bot-assisted |
+| The Office + pitch-kit (bw- variant) | 45 | discover, hook, demo, build, deliver, monetize | **The Complete Funnel** — only bw- has this |
+| The Office + pitch-kit (fin- variant) | 37 | proof, monetize | **The Trust Funnel** — financial needs proof, not demo |
+| The Office + Venture Studio | 53 | support | **The Operations Layer** — backend support |
+| The Office + IZA-OS bots | 15 | support, scale | **The Scale Layer** — ops + scaling |
+| Venture Studio + IZA-OS-RAG | 7 | build, deliver, know | **The Automation Layer** — build + learn |
+| pitch-kit + venture-hub | 1 | discover, hook, experience, proof | **The Marketing Layer** — one repo, all funnel top |
+
+### URL Type × Phase — How Each Phase Surfaces to Customers
+
+| Surface Type | Phases Enabled | Corporate Implication |
+|-------------|----------------|---------------------|
+| **pitch-kit page** (395 repos) | discover, hook, demo, monetize | 395 ventures can be FOUND and PRICED, but can't be experienced or proven |
+| **internal** (272 repos) | support, scale, know | 272 repos are invisible to customers — they power operations internally |
+| **venture-hub page** (164 repos) | discover, scale | 164 ventures appear in the directory but have no demo or monetization path |
+| **own deployed site** (22 repos) ⚠️ only 5 confirmed deployable | All phases (broad coverage) | Only deployed apps have full funnel potential |
+| **page inside venture-hub** (1 repo) | discover only | Minimal — just a listing |
+
+**Critical insight:** The URL type determines phase coverage. Pitch-kit pages get discover+demo+monetize but miss the middle. Internal repos get support+scale but are invisible. Only deployed apps can cover all 12 phases.
+
+### Repo Phase Depth — How Many Phases Does Each Repo Cover?
+
+> ⚠️ This counts ALL 853 repos (including 186 IZA-OS bots, 71 gears, 9 infra, 10 engines), not just ventures. Bots and gears inflate the 2-phase and 3-phase buckets. See the venture-only breakdown below.
+
+| Phase Depth | # of Repos | Composition | What This Means for the Corporation |
+|:-----------:|:----------:|------------|-------------------------------------|
+| 1 phase | 62 | Mostly ventures + a few gears | **Dead ends.** They do one thing (discover, or monetize, or support) but can't move a customer through a journey |
+| 2 phases | 396 | ~186 bots (support+know), ~210 ventures | **Broken funnels.** Most common pattern: discover+monetize or discover+scale. Customers can find you but can't convert |
+| 3 phases | 349 | Mostly ventures + some gears/tools | **Partial funnels.** Pattern: discover+demo+monetize. Customer can find, see, and pay — but no hook, proof, close, or fulfillment |
+| 5 phases | 1 | Infrastructure repo | **Anomaly.** One repo covers 5 phases — likely a core infrastructure repo |
+| 6 phases | 45 | All bw- (Beauty/Wellness) ventures | **Working funnels.** These are the bw- repos: discover+hook+demo+build+deliver+monetize |
+
+```
+  REPO PHASE DEPTH DISTRIBUTION (all 853):
+
+  1 phase  ████████████████████░░░░░░░░░░░░░░░░░░░░   62 repos (7%)
+  2 phases ████████████████████████████████████████  396 repos (46%)
+  3 phases ████████████████████████████████████░░░░  349 repos (41%)
+  5 phases █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    1 repo  (<1%)
+  6 phases ██████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░   45 repos (5%)
+
+  ~95% of repos cover ≤3 phases.
+  Only ~5% of repos (45 — all bw-) cover 6 phases.
+  0 repos cover all 12 phases.
+  The corporation has WIDTH (577 ventures) but not DEPTH (≤6 phases each).
+```
+
+### The Corporate Phase Synergy — Cross-Division Phase Sharing
+
+The key corporate synergy at the phase level: **divisions with different phase coverage can COMPLEMENT each other.**
+
+```
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │  COMPLEMENTARY DIVISION PAIRS                                          │
+  │                                                                         │
+  │  Financial (proof+monetize)    +    E-Commerce (discover+demo+monetize)  │
+  │  = 4-phase funnel: discover → demo → proof → monetize (still missing    │
+  │    hook, experience, close, build, deliver, support, scale, know)       │
+  │  A financial customer needs PROOF before buying.                       │
+  │  An e-commerce customer can FIND the financial product via ec- discover.│
+  │                                                                         │
+  │  Community (discover+scale)    +    Beauty/Wellness (6-phase funnel)    │
+  │  = Community discovers → Beauty fulfills the full journey               │
+  │  Community platforms can onboard users at scale → Beauty converts them  │
+  │                                                                         │
+  │  Media/Content (discover+hook+monetize) + Food/Hospitality (demo+mon.) │
+  │  = Media hooks attention → Food demo closes the deal                    │
+  │  Content creators are natural food/hospitality marketers                │
+  │                                                                         │
+  │  Operations (support+scale)     +    ANY venture division              │
+  │  = Ops handles post-sale → Venture handles acquisition                  │
+  │  The operations family is the corporate BACK OFFICE for all divisions   │
+  └─────────────────────────────────────────────────────────────────────────┘
+```
+
+### What the Phase Layout Tells the Corporation
+
+| Corporate Insight | Evidence | Action Required |
+|-------------------|----------|-----------------|
+| **The middle is broken** | 0/577 cover experience or close; only 37/577 cover proof (all fin-); only 67/577 cover hook | Build middle-of-funnel for all divisions |
+| **Beauty/Wellness is the model** | Only division with 6 phases working | Replicate bw- pattern across all 15 divisions |
+| **Financial can't be found** | 0/36 fin- ventures have discover | Add discover+demo for financial ventures |
+| **Community/Emerging/Edu are billboards** | Only discover+scale, no conversion | Add hook+demo+monetize to these divisions |
+| **Most ventures are 2-3 phase dead ends** | ~95% of repos cover ≤3 phases | Each division needs a phase-completion roadmap |
+| **Infrastructure covers all phases** | 9 infra repos touch all 12 phases | The backbone exists — connect ventures TO it |
+| **URL type locks phase coverage** | pitch-kit=discover+demo+monetize only | Deployed apps unlock the full 12-phase funnel |
+
+---
+
+## 5. VENTURE-TO-VENTURE SYNERGIES — The Cross-Division Multipliers
 
 ### Cross-Sell Synergy Map
 
@@ -304,7 +519,7 @@ A customer enters through ANY division:
 
 ---
 
-## 5. THE CORPORATE FLYWHEEL — Why Every Venture Makes Every Other Venture More Valuable
+## 6. THE CORPORATE FLYWHEEL — Why Every Venture Makes Every Other Venture More Valuable
 
 This is the compounding engine from the holding company perspective:
 
@@ -353,7 +568,7 @@ This is the compounding engine from the holding company perspective:
 
 ---
 
-## 6. INVESTOR/ACQUIRER VIEW — What Makes This Valuable
+## 7. INVESTOR/ACQUIRER VIEW — What Makes This Valuable
 
 ### The Pitch to an Investor
 
@@ -397,7 +612,7 @@ WHAT THEY'RE BUYING:  A free lead generation machine that runs 24/7 across every
 
 ---
 
-## 7. OPERATIONAL EFFICIENCY — The Headcount Equivalent
+## 8. OPERATIONAL EFFICIENCY — The Headcount Equivalent
 
 ### Traditional Staffing vs. Civilization OS
 
@@ -437,7 +652,7 @@ YOU (1 person)
 
 ---
 
-## 8. DIVISION-LEVEL DETAIL — Each Sector as a Business Unit
+## 9. DIVISION-LEVEL DETAIL — Each Sector as a Business Unit
 
 ### Division Maturity Matrix
 
@@ -498,7 +713,7 @@ The shared-infrastructure efficiency has a **flip side: single points of failure
 
 ---
 
-## 9. THE COMPLETION PATH — Corporate Milestones
+## 10. THE COMPLETION PATH — Corporate Milestones
 
 ### From the Corporate View, Not the Technical View
 
@@ -525,7 +740,7 @@ The shared-infrastructure efficiency has a **flip side: single points of failure
 
 ---
 
-## 10. SUMMARY — The Corporate Bottom Line
+## 11. SUMMARY — The Corporate Bottom Line
 
 | What You Have | Corporate Equivalent | Why It's Valuable |
 |--------------|---------------------|-------------------|
@@ -552,4 +767,4 @@ The shared-infrastructure efficiency has a **flip side: single points of failure
 | `DEEP_SYNERGY_LAYERS.md` | 9-layer deep synergy analysis |
 | `POWER_FLOW_MAP.md` | Power flow and customer path visualization |
 | `ECOSYSTEM_WIRING_MAP.md` | Wiring map for all 11 local repos |
-| **This document** | **Corporate/holding company view — repos as business ventures** |
+| **This document** | **Corporate/holding company view — repos as business ventures, phase layout from CSV data** |
