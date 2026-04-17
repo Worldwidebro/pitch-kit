@@ -40,3 +40,6 @@ slides/generated/
 
 # copied data files (source is venture-hub/data/)
 data/
+
+# generated CSV (regenerate with npm run generate-csv)
+csv/

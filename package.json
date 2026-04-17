@@ -12,7 +12,9 @@
     "slides:build": "slidev build slides/main-deck.md",
     "slides:export": "slidev export slides/main-deck.md",
     "generate-decks": "npx tsx scripts/generate-decks.ts",
-    "generate-decks:token": "GITHUB_TOKEN=$(gh auth token) npx tsx scripts/generate-decks.ts"
+    "generate-decks:token": "GITHUB_TOKEN=$(gh auth token) npx tsx scripts/generate-decks.ts",
+    "generate-csv": "python3 scripts/generate-repo-csv.py",
+    "generate-all": "npm run generate-csv && npm run generate-decks"
   },
   "dependencies": {
     "clsx": "^2.1.0",
