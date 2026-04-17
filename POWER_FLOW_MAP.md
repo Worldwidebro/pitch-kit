@@ -304,8 +304,11 @@ PROSPECT DISCOVERS YOU
 | pitch-kit | https://demo.worldwidebro.com | demo.worldwidebro.com | Gear |
 | aibossoslandingpage | https://aiboss.worldwidebro.com | aiboss.worldwidebro.com | Venture |
 | up-next-marketplace | https://upnext.worldwidebro.com | upnext.worldwidebro.com | Venture |
-| bw-001-up-next (MVP) | https://up-next.worldwidebro.com | up-next.worldwidebro.com | Venture |
-| + 15 more bw- MVP ventures | https://[slug].worldwidebro.com | [slug].worldwidebro.com | Venture |
+| bw-001-up-next | https://upnext.worldwidebro.com | upnext.worldwidebro.com | Venture |
+
+> ⚠️ **Subdomain conflict:** `bw-001-up-next-web` and `up-next-marketplace` both relate to Up Next. The web app gets `upnext.worldwidebro.com`; the marketplace can share the domain (`upnext.worldwidebro.com/marketplace`) or get its own (`marketplace.worldwidebro.com`). Decide before configuring DNS.
+
+> Only bw- ventures with a deployable Next.js frontend should get their own subdomain. Most are backend/template repos without a frontend.
 
 ### Pitch-Kit Dynamic Pages (395 repos → served from demo.worldwidebro.com)
 
