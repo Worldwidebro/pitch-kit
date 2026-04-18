@@ -440,7 +440,237 @@ The key corporate synergy at the phase level: **divisions with different phase c
 
 ---
 
-## 5. VENTURE-TO-VENTURE SYNERGIES — The Cross-Division Multipliers
+## 5. WIDTH vs DEPTH — The Corporate Gap Analysis (From CSV Data)
+
+The corporation has **576 market-facing ventures** across 14 sectors. That's massive WIDTH — but the CSV data reveals a critical DEPTH problem: **92.2% of ventures cover fewer than 6 of the 12 customer path phases.** You have 576 storefronts, but most have no doors.
+
+> ⚠️ **Count reconciliation**: Section 1 (Balance Sheet) uses 577 (total venture repos with GitHub mapping). Section 4 (Phase Layout) uses 577 (same source). This section uses 576 (actual venture count from CSV `company_role=Venture` filter — one repo may have been reclassified since the initial count). The 1-venture difference is immaterial to the analysis.
+
+### Venture Classification — The 4 Types of Ventures
+
+```
+  ┌──────────────────────────────────────────────────────────────────────────┐
+  │  EVERY VENTURE FALLS INTO ONE OF 4 CATEGORIES (venture-only, n=576):   │
+  │                                                                          │
+  │  ❌ DEAD-END (142 ventures, 24.7%)                                      │
+  │     Can be found (discover) but no way to make money (no monetize)      │
+  │     These are DIGITAL BILLBOARDS — visible but useless                   │
+  │     Pattern: discover+scale (141) or discover+hook (1)                  │
+  │                                                                          │
+  │  ⚠️ PARTIAL (385 ventures, 66.8%)                                       │
+  │     Have discover AND monetize, but missing most middle phases           │
+  │     These are STOREFRONTS WITH NO DOORS — you can see the price         │
+  │     but can't walk in to buy                                             │
+  │     Pattern: discover+demo+monetize (327) or discover+hook+monetize (21)│
+  │                                                                          │
+  │  ✅ COMPLETE (45 ventures, 7.8%)                                         │
+  │     Cover 6+ phases — actual working businesses                         │
+  │     ALL 45 are in the Beauty/Wellness division (bw- prefix)             │
+  │     Pattern: discover+hook+demo+build+deliver+monetize                  │
+  │                                                                          │
+  │  🟡 BILLBOARD (4 ventures, 0.7%)                                        │
+  │     Have discover+monetize but ZERO middle phases                       │
+  │     These are PRICE TAGS WITHOUT PRODUCTS — listed but unattainable      │
+  │     Pattern: discover+monetize (4)                                       │
+  └──────────────────────────────────────────────────────────────────────────┘
+```
+
+### The 8 Broken Phases — What's Missing Across the Corporation
+
+Of the 12 customer path phases, only 3 work reliably (discover, demo, monetize) and 1 works partially (scale). The remaining **8 phases are broken or absent** across nearly all ventures. They represent the **corporate depth gap**:
+
+| Phase | Coverage | Gap | Corporate Impact | What's Missing |
+|:-----:|:--------:|:---:|------------------|---------------|
+| **experience** | 0/576 = **0%** | 🔴 TOTAL | No free trials, no sandbox, no try-before-buy | Customers can't evaluate the product — they must buy blind or leave |
+| **close** | 0/576 = **0%** | 🔴 TOTAL | No checkout, no contract signing, no commitment flow | You can list a price but CAN'T collect — the register is broken |
+| **support** | 0/576 = **0%** | 🔴 TOTAL | No help desk, no ticket system, no customer service | Customers are abandoned after purchase — zero retention |
+| **know** | 0/576 = **0%** | 🔴 TOTAL | No customer intelligence feedback loop | Bots can't learn from usage — the RAG system has no venture data to ingest |
+| **hook** | 67/576 = **11.6%** | 🔴 NEAR-TOTAL | No email capture, no signup, no lead nurturing | Visitors bounce immediately — 88% of ventures can't capture a lead |
+| **proof** | 37/576 = **6.4%** | 🔴 NEAR-TOTAL | No case studies, no testimonials, no social proof | Nothing validates the claim — especially critical for Financial division |
+| **build** | 45/576 = **7.8%** | 🟡 SEVERE | No fulfillment path — can sell but can't deliver | Only bw- ventures can build/deliver; all others sell vapor |
+| **deliver** | 45/576 = **7.8%** | 🟡 SEVERE | No product goes live for the customer | Same as build — only bw- has this |
+
+```
+  THE 7 MISSING PHASES — VISUALIZED (venture-only):
+
+  discover   ████████████████████████████████████████████████░░  93.6% ✅ WORKS
+  demo       ████████████████████████████████░░░░░░░░░░░░░░░░░  64.6% ✅ WORKS
+  monetize   ██████████████████████████████████████░░░░░░░░░░░░  75.3% ✅ WORKS
+  scale      ████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  24.5% 🟡 PARTIAL
+  ────────────────────────────────────────────────────────────────
+  hook       █████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  11.6% ❌ BROKEN
+  build      ███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░   7.8% ❌ BROKEN
+  deliver    ███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░   7.8% ❌ BROKEN
+  proof      ███░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░   6.4% ❌ BROKEN
+  experience ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░   0.0% ❌ ABSENT
+  close      ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░   0.0% ❌ ABSENT
+  support    ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░   0.0% ❌ ABSENT
+  know       ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░   0.0% ❌ ABSENT
+```
+
+### Venture Phase Depth Distribution — How Deep Does Each Venture Go?
+
+*Venture-only (n=576), excluding bots/gears/infra/engines*
+
+| Depth | # Ventures | % | Pattern | Corporate Meaning |
+|:-----:|:----------:|:---:|---------|-------------------|
+| 2 phases | 183 | 31.8% | discover+scale (141) or proof+monetize (37) or discover+monetize (4) | **Dead-ends & billboards** — can be found or can price, but not both with a path between |
+| 3 phases | 348 | 60.4% | discover+demo+monetize (327) or discover+hook+monetize (21) | **Storefronts with no doors** — can see, can price, can't walk in |
+| 6 phases | 45 | 7.8% | discover+hook+demo+build+deliver+monetize (all bw-) | **Working businesses** — the only ones with a real customer journey |
+
+```
+  VENTURE PHASE DEPTH DISTRIBUTION:
+
+  2 phases  ██████████████████████████████████░░░░░░░░░░░░░░  183 ventures (31.8%)
+  3 phases  ████████████████████████████████████████████████  348 ventures (60.4%)
+  6 phases  █████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░   45 ventures (7.8%)
+
+  92.2% of ventures cover ≤3 phases.
+  0 ventures cover 4 or 5 phases.
+  0 ventures cover all 12 phases.
+  The corporation has WIDTH (576 ventures) but not DEPTH (avg 2.9 phases).
+```
+
+### Depth by Deployment Type — The Key Correlation
+
+**This is the most actionable finding in the entire analysis.** The deployment type (URL type) directly determines how deep a venture's funnel goes:
+
+| Deployment Type | Avg Phases | # Ventures | Phases Covered | Funnel Status |
+|----------------|:----------:|:----------:|----------------|---------------|
+| **Own deployed site** | **5.8** | ~5 | discover, hook, demo, build, deliver, monetize | ✅ **Working funnel** — can find → hook → demo → build → deliver → monetize |
+| **Pitch-kit page** | **3.1** | ~327 | discover, demo, monetize | ⚠️ **Broken funnel** — can find → see → price, but no hook/close/fulfillment |
+| **Venture-hub page** | **2.1** | ~183 | discover, scale | ❌ **No funnel** — just a listing in a directory |
+
+```
+  THE DEPTH-DEPLOYMENT CORRELATION:
+
+  Own deployed site   ████████████████████████████████  5.8 avg phases  ✅ WORKS
+  Pitch-kit page      ████████████████░░░░░░░░░░░░░░░  3.1 avg phases  ⚠️ PARTIAL
+  Venture-hub page    ██████████░░░░░░░░░░░░░░░░░░░░░  2.1 avg phases  ❌ BROKEN
+
+  THE FIX ISN'T 576 MORE APPS.
+  THE FIX IS REPLICATING THE BEAUTY/WELLNESS PATTERN ACROSS SECTORS.
+```
+
+**The path from 3.1 → 5.8 is adding 3 phases**: hook, build, deliver. That's it. Pitch-kit pages already have discover+demo+monetize. Adding hook (lead capture), build (fulfillment), and deliver (deployment) would bring every pitch-kit venture from a broken 3-phase funnel to a working 6-phase funnel — matching the Beauty/Wellness model.
+
+### Depth by Sector — Which Divisions Have Depth, Which Don't
+
+| Division | Ventures | Avg Depth | Depth Score* | Status |
+|----------|:--------:|:---------:|:------------:|--------|
+| 💅 Beauty/Wellness | 40 | **6.0** | 240 | ✅ **ONLY division with working funnel** |
+| 🛒 E-Commerce | 111 | 3.0 | 332 | ⚠️ Highest volume, but shallow |
+| 💻 Technology | 57 | 3.0 | 170 | ⚠️ Enables others but can't convert alone |
+| 🍔 Food/Hospitality | 34 | 3.0 | 102 | ⚠️ Same 3-phase pattern |
+| 🚛 Logistics/Transport | 30 | 3.0 | 90 | ⚠️ Same |
+| 🏋️ Fitness/Sports | 25 | 3.0 | 75 | ⚠️ Same |
+| 👔 Professional Services | 22 | 3.0 | 66 | ⚠️ Same |
+| 🏗️ Construction | 20 | 3.0 | 60 | ⚠️ Same |
+| 🎓 Education/Training | 15 | 3.0 | 45 | ⚠️ Same |
+| 📺 Media/Content | 20 | 3.0 | 60 | ⚠️ Slightly different (hook instead of demo) |
+| 🏘️ Community | 50 | 2.0 | 100 | ❌ Hub-only — no conversion path |
+| 🌱 Emerging | 50 | 2.0 | 100 | ❌ Hub-only — no conversion path |
+| 📚 Education | 40 | 2.0 | 80 | ❌ Hub-only — no conversion path |
+| 💰 Financial | 36 | 2.0 | 72 | ❌ Can't be found — no discover phase |
+
+\* *Depth Score = ventures × avg depth — measures total phase coverage per division*
+
+**Key finding**: E-Commerce has the highest Depth Score (332) because of volume (111 ventures × 3.0 depth), but Beauty/Wellness has the highest average depth (6.0). The corporation needs **both** — E-Commerce's WIDTH + Beauty/Wellness's DEPTH.
+
+### Sector-Level Gap Analysis — Where Each Division Is Broken
+
+| Division | Ventures | Missing Phases | Partial Phases | Gap Score* |
+|----------|:--------:|:--------------:|:--------------:|:----------:|
+| 🏘️ Community | 50 | 10 | 0 | **10.0** 🔴 |
+| 🌱 Emerging | 50 | 10 | 0 | **10.0** 🔴 |
+| 📚 Education | 40 | 10 | 0 | **10.0** 🔴 |
+| 💰 Financial | 36 | 10 | 0 | **10.0** 🔴 |
+| 🛒 E-Commerce | 111 | 9 | 0 | **9.0** 🔴 |
+| 🍔 Food/Hospitality | 34 | 9 | 0 | **9.0** 🔴 |
+| 🚛 Logistics/Transport | 30 | 9 | 0 | **9.0** 🔴 |
+| 🏋️ Fitness/Sports | 25 | 9 | 0 | **9.0** 🔴 |
+| 👔 Professional Services | 22 | 9 | 0 | **9.0** 🔴 |
+| 🏗️ Construction | 20 | 9 | 0 | **9.0** 🔴 |
+| 🎓 Education/Training | 15 | 9 | 0 | **9.0** 🔴 |
+| 📺 Media/Content | 20 | 8 | 1 (hook) | **8.5** 🔴 |
+| 💻 Technology | 57 | 8 | 1 (hook) | **8.5** 🔴 |
+| 💅 Beauty/Wellness | 40 | 6 | 0 | **6.0** 🟡 |
+
+\* *Gap Score = # missing phases + (# partial phases × 0.5). Lower is better. Beauty/Wellness leads at 6.0.*
+
+### Role Models — The 45 Complete Ventures
+
+**Every single complete venture is in the Beauty/Wellness division.** They all share the same 6-phase pattern:
+
+```
+  THE BEAUTY/WELLNESS BLUEPRINT (45 ventures, all depth=6):
+  ┌─────────────────────────────────────────────────────────────────┐
+  │  discover → hook → demo → build → deliver → monetize          │
+  │                                                                 │
+  │  Lash Extension Studio, Up Next Beauty Marketplace,            │
+  │  Mobile Lash Service, Luxury Lash Bar, Lash Training Academy,  │
+  │  Lash Supply Company, Lash Glue Brand, Private Label Lashes,   │
+  │  Franchise Lash Salons, Online Lash Education, Nail Salon,    │
+  │  Mobile Nail Tech, Luxury Nail Spa, Press On Nail Brand,      │
+  │  Nail Art Studio, Nail Polish Brand, Nail Care Products,      │
+  │  Nail Booking Marketplace, Salon Management Software,         │
+  │  Ai Nail Design Generator, Hair Salon, Barbershop,            │
+  │  Mobile Hairstyling, Hair Braiding Studio, Wig Installation,  │
+  │  Hair Extension Salon, Hair Care Line, Wig Brand,              │
+  │  Hair Extensions Brand, Scalp Treatment Products,              │
+  │  Hair Marketplace, Stylist Booking Platform,                  │
+  │  Ai Hairstyle Simulator, Salon Franchise Chain,               │
+  │  Makeup Studio, Bridal Makeup Service, Mobile Makeup Artist,  │
+  │  Photoshoot Makeup Team, Cosmetics Brand, Beauty Tools Brand  │
+  │                                                                 │
+  │  THIS IS THE TEMPLATE. Replicate across 13 other divisions.    │
+  └─────────────────────────────────────────────────────────────────┘
+```
+
+### The Path From Width to Depth — Corporate Action Plan
+
+```
+  ┌──────────────────────────────────────────────────────────────────────────┐
+  │  FROM 576 STOREFRONTS WITH NO DOORS → 576 WORKING BUSINESSES            │
+  │                                                                          │
+  │  CURRENT STATE:                                                          │
+  │    576 ventures, avg 2.9 phases, 92.2% cover ≤3 phases                 │
+  │    4 phases at 0% coverage (experience, close, support, know)            │
+  │                                                                          │
+  │  QUICK WINS (add 3 phases to pitch-kit ventures):                       │
+  │    + hook     → Lead capture form on every pitch-kit page                │
+  │    + build    → Automated fulfillment via venture-factory                │
+  │    + deliver  → Auto-deploy via venture-factory + Vercel                 │
+  │    = 327 ventures go from 3 → 6 phases (matching bw- model)             │
+  │    = Corporate avg depth jumps from 2.9 → 4.5                           │
+  │                                                                          │
+  │  MEDIUM PRIORITY (add 2 phases to venture-hub ventures):                │
+  │    + demo     → Add demo section to venture-hub pages                   │
+  │    + monetize → Add pricing/checkout to venture-hub pages               │
+  │    = 183 ventures go from 2 → 4 phases                                   │
+  │    = Corporate avg depth jumps from 4.5 → 5.3                           │
+  │                                                                          │
+  │  LONG TERM (the 4 zero-coverage phases):                                │
+  │    + experience → Free trial / sandbox for each venture                 │
+  │    + close      → Checkout/contract flow integrated into pitch-kit       │
+  │    + support    → Support Bot assigned to each venture                   │
+  │    + know       → Customer usage data feeds RAG for all bots            │
+  │    = All 576 ventures reach 10/12 phases                                 │
+  │    = Corporate avg depth jumps from 4.8 → 10                            │
+  │                                                                          │
+  │  THE MATH:                                                               │
+  │    Current: 576 ventures × 2.9 avg = 1,670 total phase coverage          │
+  │    Quick wins: 576 ventures × 4.5 avg = 2,592 total phase coverage      │
+  │    Full build: 576 ventures × 10 avg = 5,760 total phase coverage       │
+  │                                                                          │
+  │    1,670 → 5,760 = 3.5× more corporate phase coverage                    │
+  │    Not by adding ventures (WIDTH) — by deepening existing ones (DEPTH)   │
+  └──────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 6. VENTURE-TO-VENTURE SYNERGIES — The Cross-Division Multipliers
 
 ### Cross-Sell Synergy Map
 
@@ -519,7 +749,7 @@ A customer enters through ANY division:
 
 ---
 
-## 6. THE CORPORATE FLYWHEEL — Why Every Venture Makes Every Other Venture More Valuable
+## 7. THE CORPORATE FLYWHEEL — Why Every Venture Makes Every Other Venture More Valuable
 
 This is the compounding engine from the holding company perspective:
 
@@ -568,7 +798,7 @@ This is the compounding engine from the holding company perspective:
 
 ---
 
-## 7. INVESTOR/ACQUIRER VIEW — What Makes This Valuable
+## 8. INVESTOR/ACQUIRER VIEW — What Makes This Valuable
 
 ### The Pitch to an Investor
 
@@ -612,7 +842,7 @@ WHAT THEY'RE BUYING:  A free lead generation machine that runs 24/7 across every
 
 ---
 
-## 8. OPERATIONAL EFFICIENCY — The Headcount Equivalent
+## 9. OPERATIONAL EFFICIENCY — The Headcount Equivalent
 
 ### Traditional Staffing vs. Civilization OS
 
@@ -652,7 +882,7 @@ YOU (1 person)
 
 ---
 
-## 9. DIVISION-LEVEL DETAIL — Each Sector as a Business Unit
+## 10. DIVISION-LEVEL DETAIL — Each Sector as a Business Unit
 
 ### Division Maturity Matrix
 
@@ -713,7 +943,7 @@ The shared-infrastructure efficiency has a **flip side: single points of failure
 
 ---
 
-## 10. THE COMPLETION PATH — Corporate Milestones
+## 11. THE COMPLETION PATH — Corporate Milestones
 
 ### From the Corporate View, Not the Technical View
 
@@ -740,7 +970,7 @@ The shared-infrastructure efficiency has a **flip side: single points of failure
 
 ---
 
-## 11. SUMMARY — The Corporate Bottom Line
+## 12. SUMMARY — The Corporate Bottom Line
 
 | What You Have | Corporate Equivalent | Why It's Valuable |
 |--------------|---------------------|-------------------|
@@ -767,4 +997,4 @@ The shared-infrastructure efficiency has a **flip side: single points of failure
 | `DEEP_SYNERGY_LAYERS.md` | 9-layer deep synergy analysis |
 | `POWER_FLOW_MAP.md` | Power flow and customer path visualization |
 | `ECOSYSTEM_WIRING_MAP.md` | Wiring map for all 11 local repos |
-| **This document** | **Corporate/holding company view — repos as business ventures, phase layout from CSV data** |
+| **This document** | **Corporate/holding company view — repos as business ventures, phase layout + width vs depth from CSV data** |
